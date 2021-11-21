@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Converting temperature from fahrenheit to Celsius and vice-versa</title>
+<style type="text/css">
+*{margin:0px;padding:0px;box-sizing:border-box;}
+
+#container{display:flex;align-items:center;justify-content:center;background-color:#cbd619;
+height:100vh;width:100vw;}
+#box{background-color:cornflowerblue;height:200px;width:50vw;font-size:2rem;
+padding:10px;display:flex;align-items:center;justify-content:space-around;border-radius:15px;}
+
+#second_row{text-align:center;}
+
+#main{height:25px;border-radius:15px;text-align:center;}
+
+#temp_diff{height:25px;border-radius:12px;width:100px;}
+
+#sub{text-align:center;display:block;width:200px;margin:0px auto;padding:3px;margin-top:10px;
+border-radius:15px;font-weight:bold;border:0;}
+
+#result{text-align:center;display:block;width:100%;margin-top:10px;font-size:1.5rem;
+}
+</style>
+</head>
+<body>
+<section id="container">
+<div id="box">
+
+<form id="frm1" name="frm1" onsubmit="calTemp(); return false">
+<table>
+<tbody>
+<tr><td><label for="main">Please enter the temperature you'd like to convert.</label></td></tr>
+<tr id="second_row"><td><input type="number" name="temp" id="main">
+<select name="temp_diff" id="temp_diff"><
+<option value="celsius">Celsius</option>
+<option value="fahrenheit">Fahrenheit</option>
+</select></td></tr>
+<tr><td><input type="submit" name="sub" value="convert" id="sub"></td></tr>
+<tr><td><span id="result"></span></td></tr>
+
+</tbody>
+</table>
+</form>
+</div>
+</section>
+<script type="text/javascript">
+const calTemp=() => {
+	let temp=document.forms["frm1"]["main"].value;
+	//console.log(temp);
+	let select=document.forms["frm1"]["temp_diff"];
+	let tempOption=temp_diff.options[select.selectedIndex].value;
+	//console.log(tempOption);
+	function celTofah(temp){
+		let fah=Math.round((temp*9/5)+32);
+		return fah;
+	}
+	function fahTocel(temp){
+		let cel=Math.round((temp-32)*5/9);
+		return cel;
+	}
+ if(tempOption=="celsius"){
+	 result=celTofah(temp);
+	 document.getElementById("result").innerHTML=`${result}°Fahrenheit`;
+ }else{
+	 result=fahTocel(temp);
+	 document.getElementById("result").innerHTML=`${result}°Celsius`;
+ 
+ }
+ }
+
+
+
+
+</script>
+</body>
+</html>

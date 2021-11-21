@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width , initial-scale=1.0">
+<title>Animated Thermometer</title>
+<style type="text/css">
+*{margin:0px;padding:0px;box-sizing:border-box;}
+body{background-color:lightseagreen;}
+#pic{height:200px;width:200px;position:relative;top:40%;border-radius:50%;}
+.box{display:grid;grid-template-columns:3fr 1fr;}
+.box h1{font-size:7rem;height:70vh;width:40vw;position:relative;left:30%;top:30%;}
+
+</style>
+</head>
+<body>
+<div class="container">
+<div class="box"><h1>I am a Thermometer</h1><span id="meter">
+<img src="images/thermometer-empty.svg" id="pic">
+</span></div>
+</div>
+<script type="text/javascript">
+const tempLoad=() => {
+	setTimeout(() =>{
+		let pic=document.getElementById("pic");
+		pic.src="images/thermometer-quarter.svg";
+		pic.style.backgroundColor="red";
+	},1000);
+	setTimeout(() =>{
+		let pic=document.getElementById("pic");
+		pic.src="images/thermometer-half.svg";
+		pic.style.backgroundColor="blue";
+	},2000);
+	setTimeout(() =>{
+		let pic=document.getElementById("pic");
+		pic.src="images/thermometer-three-quarters.svg";
+		pic.style.backgroundColor="yellow";
+	},3000);
+	setTimeout(() =>{
+		let pic=document.getElementById("pic");
+		pic.src="images/thermometer-full.svg";
+		pic.style.backgroundColor="violet";
+	},4000);
+		
+}
+
+tempLoad();
+setInterval(tempLoad,5000);
+</script>
+</body>
+</html>
